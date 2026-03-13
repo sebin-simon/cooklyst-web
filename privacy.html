@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Cooklyst</title>
+    <meta name="description" content="Cooklyst Privacy Policy — how we collect, use, and protect your data.">
+    <meta name="robots" content="noindex">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           DESIGN TOKENS — mirrors index.html exactly
+        ============================================= */
+        :root {
+            --primary:      #EB5B28;
+            --secondary:    #2E4032;
+            --bg:           #FFFFFF;
+            --card-bg:      #F9F9F9;
+            --text:         #1A1B1E;
+            --text-muted:   #6B7280;
+            --accent:       #FBA129;
+            --border:       #E5E7EB;
+            --shadow-sm:    rgba(0,0,0,0.06);
+            --shadow-md:    rgba(0,0,0,0.10);
+            --shadow-hover: rgba(235,91,40,0.16);
+
+            --content-width: 760px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary:      #FF7A50;
+                --secondary:    #76B041;
+                --bg:           #121212;
+                --card-bg:      #1E1E1E;
+                --text:         #F0F0F0;
+                --text-muted:   #9CA3AF;
+                --accent:       #FFB74D;
+                --border:       #2D2D2D;
+                --shadow-sm:    rgba(0,0,0,0.28);
+                --shadow-md:    rgba(0,0,0,0.42);
+                --shadow-hover: rgba(255,122,80,0.20);
+            }
+        }
+
+        /* =============================================
+           RESET & BASE
+        ============================================= */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 1rem;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* =============================================
+           NAV
+        ============================================= */
+        nav {
+            position: static;
+            z-index: 100;
+            background: color-mix(in srgb, var(--bg) 84%, transparent);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+        }
+        .nav-logo .icon { font-size: 1.1rem; }
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.45rem 1rem;
+            border: 1.5px solid var(--primary);
+            border-radius: 999px;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+        .nav-back:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateX(-2px);
+        }
+        .nav-back svg {
+            width: 14px; height: 14px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        /* =============================================
+           PAGE HEADER
+        ============================================= */
+        .page-header {
+            background: var(--secondary);
+            padding: 4rem 1.5rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 80% at 50% 110%, rgba(251,161,41,0.18), transparent 65%);
+            pointer-events: none;
+        }
+        .page-header-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.7rem;
+        }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 0.9rem;
+            letter-spacing: -0.02em;
+        }
+        .page-header-meta {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.58);
+        }
+        .page-header-meta strong { color: rgba(255,255,255,0.80); font-weight: 500; }
+
+        /* =============================================
+           CONTENT LAYOUT
+        ============================================= */
+        .content-wrap {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem 5rem;
+        }
+
+        /* Intro card */
+        .intro-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+        .intro-card strong { color: var(--text); font-weight: 600; }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 3rem;
+        }
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 0.35rem 1.5rem;
+        }
+        .toc ol li {
+            counter-increment: toc-counter;
+            position: relative;
+        }
+        .toc ol li::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-right: 0.5rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .toc ol li a {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc ol li a:hover { color: var(--primary); }
+
+        /* ─── Accordion Sections ──────────────────── */
+        .policy-section {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease;
+        }
+        .policy-section:hover {
+            box-shadow: 0 4px 20px var(--shadow-sm);
+        }
+        .policy-section.open {
+            box-shadow: 0 6px 28px var(--shadow-hover);
+            border-color: rgba(235,91,40,0.25);
+        }
+        @media (prefers-color-scheme: dark) {
+            .policy-section.open { border-color: rgba(255,122,80,0.22); }
+        }
+
+        /* Accordion header / trigger */
+        .section-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--card-bg);
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.2s;
+        }
+        .section-trigger:hover { background: color-mix(in srgb, var(--card-bg) 80%, var(--border)); }
+        .policy-section.open .section-trigger {
+            background: color-mix(in srgb, var(--card-bg) 60%, var(--primary) 6%);
+        }
+
+        .section-num {
+            flex-shrink: 0;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: rgba(235,91,40,0.10);
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.02em;
+        }
+        @media (prefers-color-scheme: dark) {
+            .section-num { background: rgba(255,122,80,0.14); }
+        }
+
+        .section-title-wrap { flex: 1; min-width: 0; }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+            line-height: 1.25;
+        }
+        .section-blurb {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+            display: block;
+        }
+
+        .section-chevron {
+            flex-shrink: 0;
+            width: 20px; height: 20px;
+            color: var(--text-muted);
+            transition: transform 0.3s ease, color 0.2s;
+        }
+        .policy-section.open .section-chevron {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        /* Accordion body */
+        .section-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .policy-section.open .section-body {
+            max-height: 2000px;
+        }
+        .section-body-inner {
+            padding: 0 1.75rem 1.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ─── Typography inside sections ─────────── */
+        .section-body-inner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1.4rem 0 0.5rem;
+        }
+        .section-body-inner h3:first-child { margin-top: 1.25rem; }
+
+        .section-body-inner p {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.78;
+            margin-bottom: 0.85rem;
+        }
+        .section-body-inner p:last-child { margin-bottom: 0; }
+
+        .section-body-inner ul,
+        .section-body-inner ol {
+            padding-left: 1.35rem;
+            margin-bottom: 0.85rem;
+        }
+        .section-body-inner li {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 0.3rem;
+        }
+        .section-body-inner li::marker { color: var(--primary); }
+
+        .section-body-inner a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .section-body-inner a:hover { opacity: 0.8; }
+
+        .section-body-inner strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Inline highlight pill */
+        .pill {
+            display: inline-block;
+            background: rgba(235,91,40,0.09);
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        @media (prefers-color-scheme: dark) {
+            .pill { background: rgba(255,122,80,0.14); }
+        }
+
+        /* Notice callout */
+        .notice {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+        .notice strong { color: var(--text); }
+
+        /* Data table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+        .data-table th {
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.72rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--primary);
+            padding: 0.6rem 0.85rem;
+            background: rgba(235,91,40,0.06);
+            border-bottom: 2px solid var(--border);
+        }
+        .data-table td {
+            padding: 0.7rem 0.85rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.6;
+        }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table td strong { color: var(--text); font-weight: 600; }
+        @media (prefers-color-scheme: dark) {
+            .data-table th { background: rgba(255,122,80,0.08); }
+        }
+        @media (max-width: 520px) {
+            .data-table thead { display: none; }
+            .data-table td {
+                display: block;
+                padding: 0.5rem 0;
+                border-bottom: none;
+            }
+            .data-table tr { border-bottom: 1px solid var(--border); padding: 0.75rem 0; display: block; }
+        }
+
+        /* =============================================
+           CONTACT CARD
+        ============================================= */
+        .contact-card {
+            background: var(--secondary);
+            border-radius: 18px;
+            padding: 2.25rem 2rem;
+            text-align: center;
+            margin-top: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 70% at 50% 110%, rgba(251,161,41,0.20), transparent 70%);
+            pointer-events: none;
+        }
+        .contact-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.55rem;
+        }
+        .contact-card p {
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.5rem;
+        }
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.8rem 1.75rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .contact-email:hover {
+            background: #d4491f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(235,91,40,0.4);
+        }
+
+        /* =============================================
+           FOOTER
+        ============================================= */
+        footer {
+            background: var(--secondary);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+        .footer-links a {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.50);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: #fff; }
+        .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.30); }
+
+        /* =============================================
+           SCROLL ANIMATION
+        ============================================= */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .reveal.in { opacity: 1; transform: none; }
+    </style>
+</head>
+<body>
+
+<!-- ── Sticky Nav ─────────────────────────────── -->
+<nav aria-label="Page navigation">
+    <a href="index.html" class="nav-logo" aria-label="Cooklyst home">
+        <span class="icon" aria-hidden="true">🔥</span>Cooklyst
+    </a>
+    <a href="index.html" class="nav-back" aria-label="Back to Cooklyst home page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Home
+    </a>
+</nav>
+
+<!-- ── Page Header ───────────────────────────── -->
+<header class="page-header" role="banner">
+    <p class="page-header-eyebrow">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="page-header-meta">
+        <strong>Effective date:</strong> March 12, 2026 &nbsp;·&nbsp;
+        <strong>Last updated:</strong> March 12, 2026
+    </p>
+</header>
+
+<!-- ── Main Content ─────────────────────────── -->
+<main>
+<div class="content-wrap">
+
+    <!-- Intro card -->
+    <div class="intro-card reveal">
+        <strong>Welcome to Cooklyst.</strong> This Privacy Policy explains how Cooklyst
+        ("<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>") collects,
+        uses, and protects information when you use our mobile application and website at
+        <strong>cooklyst.app</strong>. By using Cooklyst, you agree to the practices described
+        below. Please read this policy carefully — it applies to all users of the Cooklyst app
+        and related services.
+    </div>
+
+    <!-- Table of Contents -->
+    <nav class="toc reveal" aria-label="Policy sections">
+        <p class="toc-title">📋 In this policy</p>
+        <ol>
+            <li><a href="#s1">Introduction</a></li>
+            <li><a href="#s2">Information We Collect</a></li>
+            <li><a href="#s3">How We Use Your Information</a></li>
+            <li><a href="#s4">Data Sharing</a></li>
+            <li><a href="#s5">Data Retention</a></li>
+            <li><a href="#s6">Your Rights</a></li>
+            <li><a href="#s7">Children's Privacy</a></li>
+            <li><a href="#s8">Security</a></li>
+            <li><a href="#s9">Changes to This Policy</a></li>
+            <li><a href="#s10">Contact Us</a></li>
+        </ol>
+    </nav>
+
+    <!-- ── Section 1: Introduction ─────────── -->
+    <div class="policy-section open reveal" id="s1">
+        <button class="section-trigger" aria-expanded="true" aria-controls="body-s1">
+            <span class="section-num" aria-hidden="true">01</span>
+            <span class="section-title-wrap">
+                <span class="section-title">Introduction</span>
+                <span class="section-blurb">Who we are and what this policy covers</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s1" role="region">
+            <div class="section-body-inner">
+                <p>
+                    Cooklyst is a mobile cooking application that helps users discover recipes, follow
+                    step-by-step cooking guides, and build a personal recipe collection. The app is
+                    operated and maintained by <strong>Cooklyst</strong>, reachable at
+                    <a href="mailto:privacy@cooklyst.app">privacy@cooklyst.app</a>.
+                </p>
+                <p>
+                    This Privacy Policy applies to the Cooklyst mobile application (available on
+                    Google Play and the Apple App Store), our website at cooklyst.app, and any
+                    related services or features we offer (collectively, the "<strong>Service</strong>").
+                </p>
+                <p>
+                    This policy was last updated on <strong>April 6, 2025</strong>. We may update
+                    this policy periodically — see Section 9 for how we will notify you of changes.
+                </p>
+                <div class="notice">
+                    <strong>Quick summary:</strong> We collect only the data needed to make Cooklyst
+                    work well for you. We do not sell your personal information. Ever.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Section 2: Information We Collect ─ -->
+    <div class="policy-section reveal" id="s2">
+        <button class="section-trigger" aria-expanded="false" aria-controls="body-s2">
+            <span class="section-num" aria-hidden="true">02</span>
+            <span class="section-title-wrap">
+                <span class="section-title">Information We Collect</span>
+                <span class="section-blurb">Account data, usage data, device info, and optional uploads</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s2" role="region" hidden>
+            <div class="section-body-inner">
+
+                <h3>Account Information</h3>
+                <p>
+                    When you create a Cooklyst account, we collect:
+                </p>
+                <ul>
+                    <li><strong>Name</strong> — used to personalise your in-app experience</li>
+                    <li><strong>Email address</strong> — used for authentication, account recovery, and service communications</li>
+                    <li><strong>Password</strong> — stored as a one-way cryptographic hash; we never store your plain-text password</li>
+                    <li><strong>Profile photo</strong> (optional) — if you choose to upload one</li>
+                </ul>
+                <p>
+                    You may also sign in via third-party providers (e.g., Google Sign-In), in which
+                    case we receive only the information those providers share with us under their
+                    own privacy policies.
+                </p>
+
+                <h3>Usage Data</h3>
+                <p>We automatically collect information about how you use the app, including:</p>
+                <ul>
+                    <li>Recipes viewed, saved, and cooked</li>
+                    <li>Search queries and filters applied</li>
+                    <li>Features and screens you interact with</li>
+                    <li>Session duration and frequency of use</li>
+                    <li>In-app preferences and settings</li>
+                </ul>
+
+                <h3>Device Information</h3>
+                <p>We collect technical information about the device you use, including:</p>
+                <ul>
+                    <li>Device model, operating system version, and unique device identifiers</li>
+                    <li>App version</li>
+                    <li>IP address (used for fraud prevention and approximate location)</li>
+                    <li>Crash reports and performance diagnostics</li>
+                </ul>
+
+                <h3>Optional: Recipe Photos</h3>
+                <p>
+                    If you choose to upload photos of recipes or meals you have cooked, we store
+                    those images in order to display them within the app. This is entirely optional
+                    and requires your explicit action.
+                </p>
+
+                <table class="data-table" aria-label="Summary of data collected">
+                    <thead>
+                        <tr>
+                            <th>Data type</th>
+                            <th>Required?</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Name &amp; email</strong></td>
+                            <td><span class="pill">Yes</span></td>
+                            <td>Account creation &amp; authentication</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Usage data</strong></td>
+                            <td><span class="pill">Yes</span></td>
+                            <td>App functionality &amp; improvement</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Device info</strong></td>
+                            <td><span class="pill">Yes</span></td>
+                            <td>Security, crash reporting, performance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Profile photo</strong></td>
+                            <td>Optional</td>
+                            <td>Personalisation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Recipe photos</strong></td>
+                            <td>Optional</td>
+                            <td>Recipe collection display</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Section 3: How We Use ───────────── -->
+    <div class="policy-section reveal" id="s3">
+        <button class="section-trigger" aria-expanded="false" aria-controls="body-s3">
+            <span class="section-num" aria-hidden="true">03</span>
+            <span class="section-title-wrap">
+                <span class="section-title">How We Use Your Information</span>
+                <span class="section-blurb">Functionality, personalisation, analytics, and communications</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s3" role="region" hidden>
+            <div class="section-body-inner">
+
+                <h3>App Functionality</h3>
+                <p>
+                    We use your information to operate and deliver the core features of Cooklyst:
+                    creating and managing your account, syncing your saved recipes across devices,
+                    providing personalised recipe recommendations, and enabling the step-by-step
+                    cooking mode.
+                </p>
+
+                <h3>Personalisation</h3>
+                <p>
+                    We use your saved recipes, dietary preferences, and browsing behaviour to
+                    surface content that is relevant to you — such as recommending recipes based on
+                    ingredients you frequently use or cuisines you enjoy.
+                </p>
+
+                <h3>Analytics &amp; Product Improvement</h3>
+                <p>
+                    Aggregated and anonymised usage data helps us understand how the app is used so
+                    we can fix bugs, improve performance, and build features our users actually want.
+                    We use industry-standard analytics tools (see Section 4) for this purpose.
+                </p>
+
+                <h3>Communications</h3>
+                <p>We may contact you by email for the following reasons:</p>
+                <ul>
+                    <li>Transactional messages — password resets, account security alerts</li>
+                    <li>Service announcements — important updates about the app or this policy</li>
+                    <li>Marketing emails — only if you have opted in; you can unsubscribe at any time</li>
+                </ul>
+
+                <h3>Legal Basis for Processing (GDPR)</h3>
+                <p>
+                    Where applicable, we rely on the following legal bases: <strong>contract
+                    performance</strong> (to provide the Service you signed up for),
+                    <strong>legitimate interests</strong> (to improve the app and prevent fraud),
+                    and <strong>consent</strong> (for optional features and marketing emails).
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Section 4: Data Sharing ────────── -->
+    <div class="policy-section reveal" id="s4">
+        <button class="section-trigger" aria-expanded="false" aria-controls="body-s4">
+            <span class="section-num" aria-hidden="true">04</span>
+            <span class="section-title-wrap">
+                <span class="section-title">Data Sharing</span>
+                <span class="section-blurb">We never sell your data — limited sharing with service providers only</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s4" role="region" hidden>
+            <div class="section-body-inner">
+
+                <div class="notice">
+                    <strong>We do not sell, rent, or trade your personal information</strong> to
+                    third parties for their own marketing or commercial purposes. Full stop.
+                </div>
+
+                <h3>Service Providers</h3>
+                <p>
+                    We share data with a small number of trusted third-party service providers who
+                    help us operate the app. These providers process data only on our behalf and
+                    under strict data-processing agreements:
+                </p>
+
+                <table class="data-table" aria-label="Third-party service providers">
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Purpose</th>
+                            <th>Data shared</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Firebase (Google)</strong></td>
+                            <td>Authentication, database, cloud storage, crash reporting</td>
+                            <td>Account data, usage events, crash logs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Analytics for Firebase</strong></td>
+                            <td>In-app analytics and product metrics</td>
+                            <td>Anonymised usage data, device info</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email provider</strong></td>
+                            <td>Transactional and notification emails</td>
+                            <td>Email address only</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Legal Disclosures</h3>
+                <p>
+                    We may disclose your information if required to do so by law or in response to
+                    valid legal process (e.g., a court order or subpoena), or when we believe in
+                    good faith that disclosure is necessary to protect our rights, your safety, or
+                    the safety of others.
+                </p>
+
+                <h3>Business Transfers</h3>
+                <p>
+                    In the event of a merger, acquisition, or sale of assets, your information may
+                    be transferred as part of that transaction. We will notify you via email and/or
+                    a prominent notice in the app before your data becomes subject to a different
+                    privacy policy.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Section 5: Data Retention ─────── -->
+    <div class="policy-section reveal" id="s5">
+        <button class="section-trigger" aria-expanded="false" aria-controls="body-s5">
+            <span class="section-num" aria-hidden="true">05</span>
+            <span class="section-title-wrap">
+                <span class="section-title">Data Retention</span>
+                <span class="section-blurb">How long we keep your data and how to delete your account</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s5" role="region" hidden>
+            <div class="section-body-inner">
+
+                <h3>Active Accounts</h3>
+                <p>
+                    We retain your personal data for as long as your account is active or as
+                    needed to provide you with the Service. You can review and update your
+                    information at any time from the in-app settings screen.
+                </p>
+
+                <h3>Account Deletion</h3>
+                <p>
+                    You may request permanent deletion of your account and associated personal data
+                    at any time by:
+                </p>
+                <ul>
+                    <li>Navigating to <strong>Settings → Account → Delete Account</strong> within the app, or</li>
+                    <li>Emailing us at <a href="mailto:privacy@cooklyst.app">privacy@cooklyst.app</a> with the subject line "Account Deletion Request"</li>
+                </ul>
+                <p>
+                    Upon receiving a valid deletion request, we will permanently delete your
+                    personal data within <strong>30 days</strong>. Some data may be retained for a
+                    limited additional period where required by law (e.g., financial records) or for
+                    legitimate security purposes (e.g., fraud prevention logs), after which it is
+                    deleted.
+                </p>
+
+                <h3>Analytics &amp; Aggregated Data</h3>
+                <p>
+                    Aggregated, anonymised analytics data that cannot be linked back to you may be
+                    retained indefinitely for product research and improvement.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Section 6: Your Rights ─────────── -->
+    <div class="policy-section reveal" id="s6">
+        <button class="section-trigger" aria-expanded="false" aria-controls="body-s6">
+            <span class="section-num" aria-hidden="true">06</span>
+            <span class="section-title-wrap">
+                <span class="section-title">Your Rights</span>
+                <span class="section-blurb">Access, correction, deletion — GDPR &amp; CCPA rights explained</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s6" role="region" hidden>
+            <div class="section-body-inner">
+
+                <p>
+                    Depending on your location, you may have the following rights regarding your
+                    personal data:
+                </p>
+
+                <h3>For All Users</h3>
+                <ul>
+                    <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
+                    <li><strong>Correction</strong> — request that we correct inaccurate or incomplete data</li>
+                    <li><strong>Deletion</strong> — request that we delete your personal data (see Section 5)</li>
+                    <li><strong>Opt-out of marketing</strong> — unsubscribe from marketing emails at any time via the link in any email or by contacting us</li>
+                </ul>
+
+                <h3>EU / UK Residents (GDPR)</h3>
+                <p>
+                    In addition to the above, if you are located in the European Economic Area or
+                    the United Kingdom, you have the right to:
+                </p>
+                <ul>
+                    <li><strong>Data portability</strong> — receive your data in a structured, machine-readable format</li>
+                    <li><strong>Restriction of processing</strong> — ask us to limit how we use your data in certain circumstances</li>
+                    <li><strong>Object to processing</strong> — object to processing based on legitimate interests</li>
+                    <li><strong>Withdraw consent</strong> — where processing is based on consent, withdraw it at any time without affecting prior lawful processing</li>
+                    <li><strong>Lodge a complaint</strong> — with your local supervisory authority (e.g., the ICO in the UK)</li>
+                </ul>
+
+                <h3>California Residents (CCPA / CPRA)</h3>
+                <p>
+                    California residents have the right to know what personal information we collect
+                    and how it is used, the right to delete personal information, the right to
+                    correct inaccurate personal information, and the right to opt out of the sale or
+                    sharing of personal information. <strong>We do not sell or share personal
+                    information.</strong> To exercise your rights, contact us at
+                    <a href="mailto:privacy@cooklyst.app">privacy@cooklyst.app</a>. We will respond
+                    within 45 days.
+                </p>
+
+                <div class="notice">
+                    To exercise any of the rights above, email
+                    <a href="mailto:privacy@cooklyst.app">privacy@cooklyst.app</a>.
+                    We will verify your identity before processing your request and respond within
+                    <strong>30 days</strong> (or as required by applicable law).
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Section 7: Children's Privacy ──── -->
+    <div class="policy-section reveal" id="s7">
+        <button class="section-trigger" aria-expanded="false" aria-controls="body-s7">
+            <span class="section-num" aria-hidden="true">07</span>
+            <span class="section-title-wrap">
+                <span class="section-title">Children's Privacy</span>
+                <span class="section-blurb">Cooklyst is not directed at children under 13</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s7" role="region" hidden>
+            <div class="section-body-inner">
+                <p>
+                    Cooklyst is not directed at, and we do not knowingly collect personal
+                    information from, children under the age of <strong>13</strong> (or the
+                    applicable age of digital consent in your jurisdiction — for example, 16 in
+                    certain EU member states).
+                </p>
+                <p>
+                    If you are a parent or guardian and believe that your child has provided us with
+                    personal information without your consent, please contact us immediately at
+                    <a href="mailto:privacy@cooklyst.app">privacy@cooklyst.app</a>. We will take
+                    prompt steps to delete such information from our systems.
+                </p>
+                <p>
+                    If we become aware that we have inadvertently collected personal information
+                    from a child under the relevant age threshold, we will delete it without
+                    delay.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Section 8: Security ──────────── -->
+    <div class="policy-section reveal" id="s8">
+        <button class="section-trigger" aria-expanded="false" aria-controls="body-s8">
+            <span class="section-num" aria-hidden="true">08</span>
+            <span class="section-title-wrap">
+                <span class="section-title">Security</span>
+                <span class="section-blurb">Industry-standard measures to protect your data</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s8" role="region" hidden>
+            <div class="section-body-inner">
+                <p>
+                    We take the security of your personal information seriously and implement
+                    industry-standard technical and organisational measures to protect it against
+                    unauthorised access, loss, destruction, or alteration. These measures include:
+                </p>
+                <ul>
+                    <li><strong>Encryption in transit</strong> — all data transmitted between the app and our servers uses TLS (HTTPS)</li>
+                    <li><strong>Encryption at rest</strong> — sensitive data stored in our databases is encrypted at rest</li>
+                    <li><strong>Password hashing</strong> — passwords are hashed using industry-standard algorithms (we never store plain-text passwords)</li>
+                    <li><strong>Access controls</strong> — access to production data is restricted to authorised personnel on a need-to-know basis</li>
+                    <li><strong>Firebase security rules</strong> — we use Firebase Security Rules to prevent unauthorised read/write access to user data</li>
+                    <li><strong>Regular security reviews</strong> — we periodically review our security practices and update them as threats evolve</li>
+                </ul>
+                <p>
+                    While we strive to protect your information, no method of transmission over the
+                    internet or electronic storage is 100% secure. If you suspect a security
+                    incident involving your account, please contact us immediately at
+                    <a href="mailto:privacy@cooklyst.app">privacy@cooklyst.app</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Section 9: Changes ──────────── -->
+    <div class="policy-section reveal" id="s9">
+        <button class="section-trigger" aria-expanded="false" aria-controls="body-s9">
+            <span class="section-num" aria-hidden="true">09</span>
+            <span class="section-title-wrap">
+                <span class="section-title">Changes to This Policy</span>
+                <span class="section-blurb">How and when we notify you of updates</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s9" role="region" hidden>
+            <div class="section-body-inner">
+                <p>
+                    We may update this Privacy Policy from time to time to reflect changes in our
+                    practices, technology, legal requirements, or for other operational reasons. When
+                    we make changes, we will:
+                </p>
+                <ul>
+                    <li>Update the "<strong>Last updated</strong>" date at the top of this page</li>
+                    <li>Send a notification to the email address associated with your account for any material changes</li>
+                    <li>Display a prominent in-app notice for significant changes before they take effect</li>
+                </ul>
+                <p>
+                    Your continued use of Cooklyst after the effective date of an updated policy
+                    constitutes your acceptance of the revised terms. If you do not agree with the
+                    changes, you may close your account at any time (see Section 5).
+                </p>
+                <p>
+                    We encourage you to review this policy periodically to stay informed about
+                    how we protect your information.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Section 10: Contact ──────────── -->
+    <div class="policy-section reveal" id="s10">
+        <button class="section-trigger" aria-expanded="false" aria-controls="body-s10">
+            <span class="section-num" aria-hidden="true">10</span>
+            <span class="section-title-wrap">
+                <span class="section-title">Contact Us</span>
+                <span class="section-blurb">Questions or privacy requests — we're here to help</span>
+            </span>
+            <svg class="section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="section-body" id="body-s10" role="region" hidden>
+            <div class="section-body-inner">
+                <p>
+                    If you have any questions, concerns, or requests regarding this Privacy Policy
+                    or the way we handle your personal data, please do not hesitate to reach out:
+                </p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:privacy@cooklyst.app">privacy@cooklyst.app</a></li>
+                    <li><strong>Website:</strong> <a href="https://cooklyst.app" target="_blank" rel="noopener">cooklyst.app</a></li>
+                </ul>
+                <p>
+                    We aim to respond to all privacy-related enquiries within <strong>5 business
+                    days</strong> and to resolve any requests within the timeframes required by
+                    applicable law.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact CTA card -->
+    <div class="contact-card reveal">
+        <h2>Have a privacy question?</h2>
+        <p>Our team typically responds within 5 business days.</p>
+        <a href="mailto:privacy@cooklyst.app" class="contact-email">
+            ✉️ &nbsp;privacy@cooklyst.app
+        </a>
+    </div>
+
+</div><!-- /content-wrap -->
+</main>
+
+<!-- ── Footer ─────────────────────────────── -->
+<footer>
+    <div class="footer-logo" aria-hidden="true">🔥 Cooklyst</div>
+    <nav class="footer-links" aria-label="Footer links">
+        <a href="index.html">Back to Home</a>
+        <a href="mailto:privacy@cooklyst.app">Contact Us</a>
+    </nav>
+    <p class="footer-copy">© 2025 Cooklyst. All rights reserved. · cooklyst.app</p>
+</footer>
+
+<!-- ───────────────────────────────────────────── -->
+<script>
+(function () {
+    'use strict';
+
+    /* ─── Accordion ──────────────────────────── */
+    document.querySelectorAll('.section-trigger').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const section = btn.closest('.policy-section');
+            const body    = section.querySelector('.section-body');
+            const isOpen  = section.classList.contains('open');
+
+            /* Close all */
+            document.querySelectorAll('.policy-section').forEach(function (s) {
+                s.classList.remove('open');
+                s.querySelector('.section-trigger').setAttribute('aria-expanded', 'false');
+                s.querySelector('.section-body').hidden = true;
+            });
+
+            /* Open clicked one (toggle) */
+            if (!isOpen) {
+                section.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                body.hidden = false;
+
+                /* Smooth scroll into view if partially off-screen */
+                setTimeout(function () {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < 80) {
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 50);
+            }
+        });
+    });
+
+    /* ─── Set initial state for first section ─ */
+    (function initFirst() {
+        const first = document.querySelector('.policy-section.open');
+        if (!first) return;
+        const body = first.querySelector('.section-body');
+        body.hidden = false;
+        first.querySelector('.section-trigger').setAttribute('aria-expanded', 'true');
+    }());
+
+    /* ─── Scroll Reveal ──────────────────────── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e, i) {
+            if (!e.isIntersecting) return;
+            setTimeout(function () {
+                e.target.classList.add('in');
+            }, 60);
+            io.unobserve(e.target);
+        });
+    }, { threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+
+    /* ─── TOC smooth scroll offset (sticky nav) ─ */
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            const target = document.querySelector(link.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            const offset = 80;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+
+            /* Open the target section */
+            const section = target.classList.contains('policy-section')
+                ? target
+                : target.closest('.policy-section');
+            if (section && !section.classList.contains('open')) {
+                section.querySelector('.section-trigger').click();
+            }
+        });
+    });
+
+}());
+</script>
+</body>
+</html>
