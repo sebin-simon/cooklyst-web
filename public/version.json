@@ -1,0 +1,12 @@
+{
+  "minimumVersion": "1.0.0",
+  "latestVersion": "1.0.0",
+  "forceUpdate": false,
+  "ios": {
+    "storeUrl": "https://apps.apple.com/app/cooklyst/idXXXXXXXXXX"
+  },
+  "android": {
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.sebinsimon.cooklyst"
+  },
+  "message": "A new version of Cooklyst is available with improvements and bug fixes. Please update to continue."
+}
