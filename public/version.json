@@ -1,7 +1,7 @@
 {
-  "minimumVersion": "0.0.1",
-  "latestVersion": "0.0.1",
-  "forceUpdate": false,
+  "minimumVersion": "0.0.2",
+  "latestVersion": "0.0.2",
+  "forceUpdate": true,
   "ios": {
     "storeUrl": "https://apps.apple.com/app/cooklyst/idXXXXXXXXXX"
   },
